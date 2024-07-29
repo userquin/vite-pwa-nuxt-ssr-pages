@@ -50,7 +50,8 @@ if (import.meta.env.PROD) {
         // we only need a few entries
         new ExpirationPlugin({ maxEntries: 100 }),
         {
-            /* this callback will be called when the fetch call fails */
+            // This callback will be called when the fetch call fails.
+            // Beware of the logic, will be also invoked if the server is down.
             handlerDidError: async ({ error }) => {
                 return error && 'name' in error && error.name === 'no-response' ? Response.redirect('/offline', 302) : undefined
             },

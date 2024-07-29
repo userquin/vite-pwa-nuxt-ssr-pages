@@ -19,8 +19,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       // offline required to allow redirection when offline and any server page not in cache.
-      // The redirection in the sw plugin requires a page in the sw precache,
-      // otherwise infinite redirection loop (we can use custom a 404 page for this or / fallback).
+      // The redirection in the sw plugin requires the page in the sw precache,
+      // otherwise infinite redirection loop (we can use a custom 404 page for this or just / fallback).
       routes: ['/', '/offline'],
     },
   },
